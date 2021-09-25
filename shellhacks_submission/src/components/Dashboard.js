@@ -1,4 +1,6 @@
 import React from 'react';
+import {Col,Row} from 'react-bootstrap'
+import SmallCard from './smallCard';
 
 export class Dashboard extends React.Component{
 
@@ -22,14 +24,17 @@ export class Dashboard extends React.Component{
       async searchYelp(){
         const response = await fetch("https://active-apogee-327103.ue.r.appspot.com/")
         const data =await response.json();
+        console.log(data)
         this.setState({smallBusinesses:data.businesses,fin:true})
       }
 
       render(){
           return (
-            <div style={{display:'flex',flexDirection:'column'}}>
-            {this.state.fin?this.state.smallBusinesses.map((business)=><>{business.name}</>):<>hello</>}
-            </div>
+            <Row xs={2} md={2} className="g-4"> 
+            
+            {this.state.fin?this.state.smallBusinesses.map((business)=><>{<Col><SmallCard url={business.image_url} title={business.name} text={business.phone}></SmallCard></Col>}</>):<>hello</>}
+            
+            </Row>
           )
       }
 

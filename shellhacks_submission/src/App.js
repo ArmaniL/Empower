@@ -19,7 +19,6 @@ function App() {
     <Router>
     
     <div>
-      <Dashboard></Dashboard>
       <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand href="/">Empower</Navbar.Brand>
@@ -44,6 +43,7 @@ function App() {
     </Switch>
     
     
+    <Dashboard></Dashboard>
     </Router>
   )
 }
