@@ -2,7 +2,8 @@ const express = require('express')
 const fetch = require('axios')
 var cors = require('cors')
 const app = express()
-const port = 3000
+const port  = process.env.PORT || 8080;
+
 
 app.use(cors())
 app.get('/', async (req, res) => {
