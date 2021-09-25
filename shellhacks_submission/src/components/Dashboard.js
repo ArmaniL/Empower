@@ -22,7 +22,7 @@ export class Dashboard extends React.Component{
       }
 
       async searchYelp(){
-        const response = await fetch("https://active-apogee-327103.ue.r.appspot.com/")
+        const response = await fetch("https://active-apogee-327103.ue.r.appspot.com/?term=" + this.props.term)
         const data =await response.json();
         console.log(data)
         this.setState({smallBusinesses:data.businesses,fin:true})
@@ -30,9 +30,9 @@ export class Dashboard extends React.Component{
 
       render(){
           return (
-            <Row xs={2} md={2} className="g-4"> 
+            <Row /*style={{"height": 700, "width": "100%"}} xs={2} md={2} lg={3} xl={4} xxl={6}*/ className="g-4"> 
             
-            {this.state.fin?this.state.smallBusinesses.map((business)=><>{<Col><SmallCard url={business.image_url} title={business.name} text={business.phone}></SmallCard></Col>}</>):<>hello</>}
+            {this.state.fin?this.state.smallBusinesses.map((business)=><>{<Col><SmallCard url={business.image_url} title={business.name} text={business.phone}></SmallCard></Col>}</>):<>""</>}
             
             </Row>
           )
