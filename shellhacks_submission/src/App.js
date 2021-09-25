@@ -9,6 +9,7 @@ import {
   Link
 } from "react-router-dom";
 import { Navbar , Nav , Container, Image } from 'react-bootstrap';
+import Searchbar from './components/Searchbar';
 import HomeScreen from "./pages/HomeScreen.js"
 import MapView from './pages/MapView';
 import AboutUs from './pages/AboutUs';
@@ -37,6 +38,7 @@ function App() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+     
     </div>
     
     

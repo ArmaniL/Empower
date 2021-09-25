@@ -22,7 +22,7 @@ export class Dashboard extends React.Component{
       }
 
       async searchYelp(){
-        const response = await fetch("https://active-apogee-327103.ue.r.appspot.com/?term=" + this.props.term)
+        const response = await fetch('https://active-apogee-327103.ue.r.appspot.com/?term=small "' + this.props.term + '&location="' + this.state.city)
         const data =await response.json();
         console.log(data)
         this.setState({smallBusinesses:data.businesses,fin:true})
