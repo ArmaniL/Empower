@@ -13,31 +13,23 @@ export class Dashboard extends React.Component{
           latitude:0,
           accuracy:0,
           city:"",
-          smallBusinesses:[]
+          smallBusinesses:[],
+          fin:false
         }
     
       }
 
       async searchYelp(){
-
-        let myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer joCHI4iyiFsdWXevs76e3NDMoand-ZtkGOse3e-nPQXFJmsiP8gbwILFJawdYlQzrJgU1HqHyNuA9q2HqAkcIhnlpc60y1jRlkF3imHgNU4DTlgM4au8YGaP7wsiX3Yx");
-
-let requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
-
-const data = await fetch("https://api.yelp.com/v3/businesses/search?term=\"small\"&location=\"Miami\"", requestOptions)
-const resp = data.json(); 
-console.log(resp);
-
+        const response = await fetch("https://active-apogee-327103.ue.r.appspot.com/")
+        const data =await response.json();
+        this.setState({smallBusinesses:data.businesses,fin:true})
       }
 
       render(){
           return (
-              <span>{""}</span>
+            <div style={{display:'flex',flexDirection:'column'}}>
+            {this.state.fin?this.state.smallBusinesses.map((business)=><>{business.name}</>):<>hello</>}
+            </div>
           )
       }
 
