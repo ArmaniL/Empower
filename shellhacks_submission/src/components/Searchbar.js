@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap"
-import { Dashboard } from "../components/Dashboard";
+import { Dashboard } from "./Dashboard";
 import { useState } from "react";
 
 
-function AboutUs(){
+function Searchbar(){
     const [click, setclick] = useState(false)
     const [input, setinput] = useState("")
 
@@ -20,4 +20,4 @@ function AboutUs(){
         )   
     }
 }
-export default AboutUs;
+export default Searchbar;

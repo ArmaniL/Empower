@@ -28,11 +28,11 @@ app.get('/id',async(req,res)=>{
     
 })
 app.get('/', async (req, res) => {
-    var axios = require('axios');
+    let axios = require('axios');
 
-    var config = {
+    let config = {
       method: 'get',
-      url: 'https://api.yelp.com/v3/businesses/search?term="small"&location="'+req.query.location+"\"",
+      url: 'https://api.yelp.com/v3/businesses/search?term="'+ req.query.term + '"&location="'+req.query.location+"\"",
       headers: { 
         'Authorization': 'Bearer joCHI4iyiFsdWXevs76e3NDMoand-ZtkGOse3e-nPQXFJmsiP8gbwILFJawdYlQzrJgU1HqHyNuA9q2HqAkcIhnlpc60y1jRlkF3imHgNU4DTlgM4au8YGaP7wsiX3Yx'
       }

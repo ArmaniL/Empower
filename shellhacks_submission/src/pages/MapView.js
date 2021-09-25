@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
 import { Button } from "react-bootstrap"
+<<<<<<< HEAD
 import Map from "../components/Map";
 import BigCard from "../components/Bigcard";
 import { Col, Row } from "react-bootstrap";
 
+=======
+import { Dashboard } from "../components/Dashboard";
+>>>>>>> a89220b6332c76e5ea2ab0ddd7aef599ef6d3461
 
 function MapView(props){
     const {address,business} = props;
@@ -19,6 +23,7 @@ function MapView(props){
     
     
     return(
+<<<<<<< HEAD
     <>
     <Row>
         <Col>
@@ -28,6 +33,12 @@ function MapView(props){
     </Row>
     
     </>
+=======
+    <div>
+    <Button>MapView</Button>
+    <Dashboard></Dashboard>
+    </div>
+>>>>>>> a89220b6332c76e5ea2ab0ddd7aef599ef6d3461
     )
 
 
