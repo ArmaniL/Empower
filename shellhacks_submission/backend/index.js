@@ -11,7 +11,7 @@ app.get('/id',async(req,res)=>{
   let axios = require('axios');
 
     let config = {
-      method: 'get',
+      method: 'GET',
       url: 'https://api.yelp.com/v3/businesses/'+req.query.id,
       headers: { 
         'Authorization': 'Bearer joCHI4iyiFsdWXevs76e3NDMoand-ZtkGOse3e-nPQXFJmsiP8gbwILFJawdYlQzrJgU1HqHyNuA9q2HqAkcIhnlpc60y1jRlkF3imHgNU4DTlgM4au8YGaP7wsiX3Yx'

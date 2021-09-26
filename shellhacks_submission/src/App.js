@@ -43,8 +43,7 @@ function App() {
     
     
     <Switch>  
-    <Route component={HomeScreen} exact path="/" />
-    <Route component={MapView} exact path="/View" />
+    <Route component={Dashboard} exact path="/" />
     <Route component={AboutUs} exact path="/AboutUs" />
     </Switch>
     

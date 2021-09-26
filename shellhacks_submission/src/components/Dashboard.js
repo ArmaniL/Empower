@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import SmallCard from "./smallCard";
-
+import MapView from "../pages/MapView";
 export class Dashboard extends React.Component {
   constructor() {
     super();
@@ -12,6 +12,8 @@ export class Dashboard extends React.Component {
       city: "",
       smallBusinesses: [],
       fin: false,
+      picked:false,
+      pickedBusiness:{}
     };
   }
 
@@ -28,6 +30,11 @@ export class Dashboard extends React.Component {
   }
 
   render() {
+    if(this.state.picked){
+const {pickedBusiness} = this.state
+return (<MapView address={"Miami"} business={pickedBusiness}/>)
+
+    }
     return (
       <Row xs={2} md={2} className="g-4">
         {this.state.fin ? (
@@ -41,6 +48,7 @@ export class Dashboard extends React.Component {
                     title={business.name}
                     phone={business.phone}
                     categories={business.categories}
+                    review_count={business.review_count}
                   ></SmallCard>
                 </Col>
               }
@@ -59,7 +67,15 @@ export class Dashboard extends React.Component {
       timeout: 5000,
       maximumAge: 0,
     };
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const crd = pos.coords;
 
+        this.setState({
+          longitude: crd.longitude,
+          latitude: crd.latitude,
+          accuracy: crd.accuracy,
+        });
     const mapsurl =
       "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAmnW0eH3BrdVKIQq7b4cialug3UStLczk&latlng=" +
       this.state.latitude.toString() +
@@ -95,4 +111,5 @@ export class Dashboard extends React.Component {
         }
       );
   }
-}
+    )
+}}
