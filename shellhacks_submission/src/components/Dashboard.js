@@ -1,7 +1,9 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import SmallCard from "./smallCard";
-import MapView from "../pages/MapView";
+import AltMapView from "../pages/AltMapView";
+import { ParallaxProvider } from 'react-scroll-parallax';
+
 export class Dashboard extends React.Component {
   constructor() {
     super();
@@ -34,7 +36,7 @@ export class Dashboard extends React.Component {
     console.log(this.state.city)
     if(this.state.picked){
 const {pickedBusiness} = this.state
-return (<MapView address={this.state.street} business={pickedBusiness}/>)
+return (<ParallaxProvider><AltMapView address={this.state.street} business={pickedBusiness}/></ParallaxProvider>)
 
     }
     return (

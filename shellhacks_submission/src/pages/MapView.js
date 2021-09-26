@@ -7,6 +7,7 @@ import { Col, Row } from "react-bootstrap";
 
 function MapView(props){
     const {address,business} = props;
+    const url = business.image_url;
     /*useEffect( ()=>{
         const getData = async()=>{
             const url = "https://active-apogee-327103.ue.r.appspot.com/id?id="+business.id

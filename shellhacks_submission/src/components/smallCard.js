@@ -9,8 +9,8 @@ export default class SmallCard extends React.Component {
 
   render() {
     return (
-      <Card>
-        <Card.Img variant="top" src={this.props.url} />
+      <Card style={{width:'40vw'}} >
+        <Card.Img variant="top" style={{height:'40vw'}}  src={this.props.url} />
         <Card.Body>
           <Card.Title>{this.props.title}</Card.Title>
           <Card.Text>{this.props.phone}</Card.Text>
