@@ -7,19 +7,20 @@ import { Col, Row } from "react-bootstrap";
 
 function MapView(props){
     const {address,business} = props;
-    useEffect( ()=>{
+    /*useEffect( ()=>{
         const getData = async()=>{
-            console.log(this.state.city);
             const url = "https://active-apogee-327103.ue.r.appspot.com/id?id="+business.id
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
             this.setState({ smallBusinesses: data.businesses, fin: true });
         }
+
+        getData();
   
-    })
+    },[])
     
-    
+    */
     return(
     <>
     <Row>

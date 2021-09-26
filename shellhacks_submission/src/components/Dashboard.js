@@ -13,7 +13,8 @@ export class Dashboard extends React.Component {
       smallBusinesses: [],
       fin: false,
       picked:false,
-      pickedBusiness:{}
+      pickedBusiness:{},
+      street:""
     };
   }
 
@@ -30,9 +31,10 @@ export class Dashboard extends React.Component {
   }
 
   render() {
+    console.log(this.state.city)
     if(this.state.picked){
 const {pickedBusiness} = this.state
-return (<MapView address={"Miami"} business={pickedBusiness}/>)
+return (<MapView address={this.state.street} business={pickedBusiness}/>)
 
     }
     return (
@@ -42,7 +44,8 @@ return (<MapView address={"Miami"} business={pickedBusiness}/>)
             <>
               {
                 <Col>
-                  <SmallCard
+                <div onClick={()=>{this.setState({pickedBusiness:business,picked:true})}}>
+                  <SmallCard 
                     url={business.image_url}
                     price={business.price}
                     title={business.name}
@@ -50,6 +53,7 @@ return (<MapView address={"Miami"} business={pickedBusiness}/>)
                     categories={business.categories}
                     review_count={business.review_count}
                   ></SmallCard>
+                  </div>
                 </Col>
               }
             </>
@@ -88,7 +92,8 @@ return (<MapView address={"Miami"} business={pickedBusiness}/>)
           console.log(data);
           console.log(mapsurl);
           const localcity = data.results[2].address_components[1]["long_name"];
-          this.setState({ city: localcity });
+          const strt = data.results[0].formatted_address
+          this.setState({ city: localcity,street:strt });
           this.searchYelp();
         },
 

@@ -25,7 +25,6 @@ export default class BigCard extends React.Component {
           <Card.Title>{title}</Card.Title>
           <Card.Text>{phone}</Card.Text>
           <Card.Text>{" " + review_count + " reviews"}</Card.Text>
-          <Card.Link href={url} >Check them out on Yelp!</Card.Link>
           <Card.Text>{price}</Card.Text>
           <Row>
             {categories.map((cat) => (
@@ -42,6 +41,7 @@ export default class BigCard extends React.Component {
             ))}
           </Row>
         </Card.Body>
+        <Card.Footer><Card.Link href={url} >Check them out on Yelp!</Card.Link></Card.Footer>
       </Card>
     );
   }
